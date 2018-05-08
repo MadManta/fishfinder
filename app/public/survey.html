@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <title>f i s h &nbsp; f i n d e r</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.min.css" />
+        <link rel="stylesheet" href="public/assets/css/style.css">
+    </head>
+<body>
+
+<div class="uk-container uk-container-small">
+    <div class="uk-card uk-margin-small uk-align-center uk-card-default uk-card-body mainbox">
+    <h1>Fill Out</h1>
+    <br><br>
+    <form>
+        <h2>About You</h2>
+        <div class="uk-margin">
+            Your Username:<br>
+            <input class="uk-input uk-form-width-large" type="text" placeholder="e.g. AquariumEnthusiast" id="username"><br><br>
+            Your Photo Link:<br>
+            <input class="uk-input uk-form-width-large" type="text" placeholder="http://imgur.com/20gallon.png" id="photo">
+        </div>
+        
+        <div class="uk-margin">
+            Question 1<br>
+            <select class="uk-select uk-form-width-medium" id="q1">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 2<br>
+            <select class="uk-select uk-form-width-medium" id="q2">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 3<br>
+            <select class="uk-select uk-form-width-medium" id="q3">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 4<br>
+            <select class="uk-select uk-form-width-medium" id="q4">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 5<br>
+            <select class="uk-select uk-form-width-medium" id="q5">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 6<br>
+            <select class="uk-select uk-form-width-medium" id="q6">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 7<br>
+            <select class="uk-select uk-form-width-medium" id="q7">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 8<br>
+            <select class="uk-select uk-form-width-medium" id="q8">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <optio value="4"n>04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 9<br>
+            <select class="uk-select uk-form-width-medium" id="q9">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            Question 10<br>
+            <select class="uk-select uk-form-width-medium" id="q10">
+                <option value="1">01 - Strongly Agree</option>
+                <option value="2">02 - Agree</option>
+                <option value="3">03 - No Opinion</option>
+                <option value="4">04 - Disagree</option>
+                <option value="5">05 - Strongly Disagree</option>
+            </select><br><br>
+            
+            <button class="uk-button uk-button-default" id="submit">Submit</button>               
+        </div>
+        
+        </form>
+    </div>
+
+    <div class="uk-card uk-card-default uk-card-body " id="surveyresult">
+        RESULTS
+    </div>
+    
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit-icons.min.js"></script>
+<script>
+var currentURL = window.location.origin;
+
+$("#submit").on("click", function(event) {
+    event.preventDefault();
+
+    var newFish = {
+        username: $("#username").val(),
+        photo: $("#photo").val(),
+        scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+        ]
+    };
+
+    console.log(newFish);
+
+    $.post("/api/fish", newFish, function(data) {
+        if (data) {
+            alert("survey results logged")
+        }
+        else {
+            alert("e r r o r")
+        }
+        findMatch(newFish);
+        $("#username").val("");
+        $("#photo").val("");
+    })
+
+    function findMatch(newFish) {
+        $.ajax({ url: currentURL + "/api/fish", method: "GET"}).then(function(result) {
+            var bestMatch = result[0];
+            var bestDifference = 30;
+            for (var i = 0; i < result.length - 1; i++) {
+                var totalDifference = 0;
+                for (var j = 0; j  < result[i].scores.length; j++) {
+                    totalDifference += Math.abs(result[i].scores[j] - newFish.scores[j]);
+                }
+                if (totalDifference < bestDifference) {
+                    bestMatch = result[i];
+                    bestDifference = totalDifference;
+                }
+            };
+            $("#surveyresult").append("Your best match is " + bestMatch.name + "!<br>" + "<img src= '" + bestMatch.photo + "'><hr>");
+        })
+    };
+
+})
+
+
+</script>
+</body>
+</html>
